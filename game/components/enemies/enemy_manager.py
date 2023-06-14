@@ -1,3 +1,4 @@
+import random
 from game.components.enemies.enemy import Enemy
 
 
@@ -7,10 +8,8 @@ class EnemyManager:
 
     def update(self):
         if not self.enemies: # [] {} 0 "" -> false | [1] {1: 1} 1 -2 "asd" -> true
-            self.enemies.append(Enemy())
-
-        # if len(self.enemies) == 0:
-        #     pass
+            enemy_variant = random.randint(1, 2)
+            self.enemies.append(Enemy(enemy_variant))
 
         for enemy in self.enemies:
             enemy.update(self.enemies)
